@@ -1,24 +1,29 @@
 import sys
 import random
  
-l=[["-","-","-"],["-","-","-"],["-","-","-"]]
+l=['-','-','-','-','-','-','-','-','-','-']
+
 
 
 
 
 def print_board():
-    for i in range(3):
-        print l[i]
-
-
+    print(" ")
+    print(" ")
+    print(l[1]+" | "+l[2]+" | "+l[3])
+    print("---------")
+    print(l[4]+" | "+l[5]+" | "+l[6])
+    print("---------")
+    print(l[7]+" | "+l[8]+" | "+l[9])
+    print(" ")
+    print(" ")
 
 
 def player1():
     print("Enter index where you want to place O")
     x=int(raw_input())
-    y=int(raw_input())
-    if l[x][y]=='-':
-        l[x][y]='O'
+    if l[x]=='-':
+        l[x]='O'
         print_board()
     else:
         print("Place already filled!!!!!! try again")
@@ -30,86 +35,86 @@ def player1():
 def player2():
     print("Enter index where you want to place X")
     x=int(raw_input())
-    y=int(raw_input())
-    if l[x][y]=='-':
-        l[x][y]='X'
+    
+    if l[x]=='-':
+        l[x]='X'
         print_board()
     else:
         print("Place already filled!!!!!! try again")
         player2()   
 
 def check1():
-    if l[0][0]==l[0][1]==l[0][2]=='O':
+    if l[1]==l[2]==l[3]=='O':
         print("-----------------player 1 WON-----------------")
         sys.exit()
         
-    elif l[1][0]==l[1][1]==l[1][2]=='O':
+    elif l[4]==l[5]==l[6]=='O':
         print("-----------------player 1 WON-----------------")
         sys.exit()
         
-    elif l[2][0]==l[2][1]==l[2][2]=='O':
+    elif l[7]==l[8]==l[9]=='O':
         print("-----------------player 1 WON-----------------")
         sys.exit()
             
-    elif l[0][0]==l[1][0]==l[2][0]=='O':
+    elif l[1]==l[4]==l[7]=='O':
         print("-----------------player 1 WON-----------------")
         sys.exit()
         
-    elif l[0][1]==l[1][1]==l[2][1]=='O':
+    elif l[2]==l[5]==l[8]=='O':
         print("-----------------player 1 WON-----------------")   
         sys.exit()
         
-    elif l[0][2]==l[1][2]==l[2][2]=='O':
+    elif l[3]==l[6]==l[9]=='O':
         print("-----------------player 1 WON-----------------")
         sys.exit()
         
-    elif l[0][0]==l[1][1]==l[2][2]=='O':
+    elif l[1]==l[5]==l[9]=='O':
         print("-----------------player 1 WON-----------------")
         sys.exit()
         
-    elif l[0][2]==l[1][1]==l[2][0]=='O':
+    elif l[3]==l[5]==l[7]=='O':
         print("-----------------player 1 WON-----------------")  
         sys.exit()
 
 
 def check2():
-    if l[0][0]==l[0][1]==l[0][2]=='X':
+    if l[1]==l[2]==l[3]=='X':
         print("-----------------player 2 WON-----------------")
         sys.exit()
         
-    elif l[1][0]==l[1][1]==l[1][2]=='X':
+    elif l[4]==l[5]==l[6]=='X':
         print("-----------------player 2 WON-----------------")
         sys.exit()
         
-    elif l[2][0]==l[2][1]==l[2][2]=='X':
+    elif l[7]==l[8]==l[9]=='X':
         print("-----------------player 2 WON-----------------")
         sys.exit()
             
-    elif l[0][0]==l[1][0]==l[2][0]=='X':
+    elif l[1]==l[4]==l[7]=='X':
         print("-----------------player 2 WON-----------------")
         sys.exit()
         
-    elif l[0][1]==l[1][1]==l[2][1]=='X':
+    elif l[2]==l[5]==l[8]=='X':
         print("-----------------player 2 WON-----------------")   
         sys.exit()
         
-    elif l[0][2]==l[1][2]==l[2][2]=='X':
+    elif l[3]==l[6]==l[9]=='X':
         print("-----------------player 2 WON-----------------")
         sys.exit()
         
-    elif l[0][0]==l[1][1]==l[2][2]=='X':
+    elif l[1]==l[5]==l[9]=='X':
         print("-----------------player 2 WON-----------------")
         sys.exit()
         
-    elif l[0][2]==l[1][1]==l[2][0]=='X':
+    elif l[3]==l[5]==l[7]=='X':
         print("-----------------player 2 WON-----------------") 
-        sys.exit()    
+        sys.exit()
 
 
 print("WELCOME to the game of TIC TAC TOE developed by me, Vipul Gupta")
 print("read all the instructions carefully")
-print("-Index to place 0 and * are in the form of matrix i.e [0][0]")
-print("-Values for indeces varies between 0 to 2")
+
+print("-Values for indeces varies between 1 and 9")
 print("Are you ready for thr game?(y/n)")
 v=raw_input()
 if v=='y':
@@ -125,7 +130,7 @@ if v=='y':
             print("Player 2 :")
             player2()
             check2()
-        elif r==2:
+        else:
             print("-------PLAYER 2 HAS WON THE TOSS-------")
             print("Player 2 :")
             player2()
@@ -136,5 +141,6 @@ if v=='y':
 else:
     sys.exit()
 
+    
     
 
